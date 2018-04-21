@@ -1,0 +1,163 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>首页</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only><ion-icon name="calendar"></ion-icon></button>
+      <button ion-button icon-only><ion-icon name="notifications"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content no-padding>
+  <img src="assets/images/androidbanner.png" alt="">
+  <!--<ion-grid>-->
+    <!--<ion-row>-->
+      <!--<ion-col>-->
+        <!--<h6>今日</h6>-->
+        <!--<h4><span>{{todayData | number:'1.2-2'}}元</span></h4>-->
+        <!--<p>比昨日:-->
+          <!--<span [ngClass]="{'less-equal': yesterdayData <=0,'greater':  yesterdayData > 0}">{{yesterdayData | number:'1.2-2'}}</span>-->
+          <!--<ion-icon name="arrow-round-up" *ngIf="yesterdayData > 0"></ion-icon>-->
+          <!--<ion-icon name="arrow-round-forward" *ngIf="yesterdayData == 0"></ion-icon>-->
+          <!--<ion-icon name="arrow-round-down" *ngIf="yesterdayData < 0"></ion-icon>-->
+        <!--</p>-->
+      <!--</ion-col>-->
+      <!--<ion-col>-->
+        <!--<h6>七日</h6>-->
+        <!--<h4>{{thisWeekData | number:'1.2-2'}}<span>元</span></h4>-->
+        <!--<p>-->
+          <!--比同期：-->
+          <!--<span [ngClass]="{'less-equal': lastWeekData <= 0,'greater': lastWeekData > 0}">{{lastWeekData | number:'1.2-2'}}</span>-->
+          <!--<ion-icon name="arrow-round-up" *ngIf="lastWeekData > 0"></ion-icon>-->
+          <!--<ion-icon name="arrow-round-forward" *ngIf="lastWeekData == 0"></ion-icon>-->
+          <!--<ion-icon name="arrow-round-down" *ngIf="lastWeekData < 0"></ion-icon>-->
+        <!--</p>-->
+      <!--</ion-col>-->
+      <!--<ion-col>-->
+        <!--<h6>本月</h6>-->
+        <!--<h4>{{thisMonthData | number:'1.2-2'}}<span>元</span></h4>-->
+        <!--<p>比同期：-->
+          <!--<span [ngClass]="{'less-equal': lastMonthData <= 0,'greater': lastMonthData > 0}">{{lastMonthData | number:'1.2-2'}}</span>-->
+          <!--<ion-icon name="arrow-round-up" *ngIf="lastMonthData > 0"></ion-icon>-->
+          <!--<ion-icon name="arrow-round-forward" *ngIf="lastMonthData == 0"></ion-icon>-->
+          <!--<ion-icon name="arrow-round-down" *ngIf="lastMonthData < 0"></ion-icon>-->
+        <!--</p>-->
+      <!--</ion-col>-->
+    <!--</ion-row>-->
+  <!--</ion-grid>-->
+
+  <ion-grid>
+
+    <ion-row class="quick-actions">
+
+      <ion-col class="quick-action-item">
+     <!--   <a class="shortcut" (click)="addcommodity()">-->
+          <a class="shortcut"[navPush]="addProductPage" >
+          <img src="assets/images/add_salse.png" style="width: 50%;height: 50%;">
+          <div style="margin-top: 5px;" >新增商品</div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut">
+          <img src="assets/images/add_user.png" style="width: 50%;height: 50%;">
+          <div>
+            新增会员
+          </div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut">
+          <img src="assets/images/sales_account.png" style="width: 50%;height: 50%;">
+          <div>
+            收银记账
+          </div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut">
+          <img src="assets/images/a_note.png" style="width: 50%;height: 50%;">
+          <div>
+            支出管理
+          </div>
+        </a>
+      </ion-col>
+    </ion-row>
+    <ion-row class="quick-actions">
+
+      <ion-col class="quick-action-item">
+        <a class="shortcut" >
+          <img src="assets/images/sales_management.png" style="width: 50%;height: 50%;">
+          <div>
+            商品管理
+          </div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut">
+          <img src="assets/images/user_management.png" style="width: 50%;height: 50%;">
+          <div>
+            会员管理
+          </div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut">
+          <img src="assets/images/shop_management.png" style="width: 50%;height: 50%;">
+          <div>
+            查询销售
+          </div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut">
+          <img src="assets/images/analysis.png" style="width: 50%;height: 50%;">
+          <div>
+            智能分析
+          </div>
+        </a>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="quick-actions">
+
+      <ion-col class="quick-action-item">
+        <a class="shortcut">
+          <img src="assets/images/gongying_more.png" style="width: 50%;height: 50%;">
+          <div>
+            供应商管理
+          </div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut">
+          <img src="assets/images/guandan_more.png" style="width: 50%;height: 50%;">
+          <div>
+            挂单
+          </div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+        <a class="shortcut"[navPush]="categoryListPage">
+          <img  src="assets/images/image_addsales.png" style="width: 50%;height: 50%;">
+          <div>
+            高级功能
+          </div>
+        </a>
+      </ion-col>
+      <ion-col class="quick-action-item">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+<copyright [bottom]="'20px'" ></copyright>
+<!--<ion-col class="quick-action-item">
+  <a class="shortcut" href="" >
+    <ion-img [navPush]="categoryListPage" name="apps" src="assets/images/image_addsales.png" alt=""></ion-img>
+    <div>高级功能</div>
+  </a>
+</ion-col>-->

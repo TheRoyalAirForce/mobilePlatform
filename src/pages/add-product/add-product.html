@@ -1,0 +1,77 @@
+<!--
+  Generated template for the AddProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>新增商品</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content>
+  <ion-content no-padding>
+    <ion-list>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/images/supplier_icon.png">
+        </ion-thumbnail>
+        <p item-end>上传图片</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>条码</ion-label>
+        <ion-input name="code2" [(ngModel)]="code" #code2="ngModel" placeholder="输入条形码" type="text" required></ion-input>
+        <button ion-button icon-only item-end><ion-icon name="code"></ion-icon></button>
+      </ion-item>
+      <ion-item>
+        <ion-label>名称*</ion-label>
+        <ion-input  name="name2" [(ngModel)]="name" #name2="ngModel" placeholder="输入商品名称" type="text" required></ion-input>
+      </ion-item>
+      <button ion-item [navPush]="categoryListPage">
+        <p>分类<span>*</span></p>
+        <ion-note item-end>{{product.categoryName}}</ion-note>
+      </button>
+    </ion-list>
+    <ion-list style="margin-bottom: 40px;">
+      <ion-item>
+        <ion-label>售价*</ion-label>
+        <ion-input  name="price2" [(ngModel)]="price" #price2="ngModel" placeholder="输入商品售价" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>进价</ion-label>
+        <ion-input name="purchase2" [(ngModel)]="purchase" #purchase2="ngModel" placeholder="输入商品进价" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>库存</ion-label>
+        <ion-input name="stock2" [(ngModel)]="stock" #stock2="ngModel" placeholder="输入商品库存" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>规格</ion-label>
+        <ion-input name="norm2" [(ngModel)]="norm" #norm2="ngModel" placeholder="规格 型号 尺码" type="text" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>备注</ion-label>
+        <ion-input name="remark2" [(ngModel)]="remark" #remark2="ngModel" placeholder="输入商品备注" type="text" required></ion-input>
+      </ion-item>
+      <ion-item (click)="showPrompt()">
+        <ion-label>供应商</ion-label>
+        <ion-input name="supplier2" [(ngModel)]="supplier" #supplier2="ngModel" placeholder="输入商品供应商" type="text" required></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-grid no-padding style="position: fixed;bottom:0px;left:0;right:0;z-index:10;">
+    <ion-row no-padding>
+      <ion-col no-padding>
+        <button ion-button block color="primary" (click)="save()">完成</button>
+      </ion-col>
+      <ion-col no-padding>
+        <button ion-button block color="primary" (click)="add()">继续添加</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
