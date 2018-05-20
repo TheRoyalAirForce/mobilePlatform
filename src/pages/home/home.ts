@@ -1,34 +1,82 @@
-import { Component } from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
-import {CategoryListPage} from "../category-list/category-list";
-import {AddProductPage} from "../add-product/add-product";
-
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
+import {LocalStorageProvider} from "../../providers/local-storage/local-storage";
+import {ListPage} from "../list/list";
+import {NormalPerformPage} from "../normal-perform/normal-perform";
+import {PositionPage} from "../position/position";
+import {PerformPage} from "../perform/perform";
+import {LeaveRecordPage} from "../leave-record/leave-record";
+import {AbsentRecordPage} from "../absent-record/absent-record";
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  categoryListPage:any=CategoryListPage;
-  addProductPage:any=AddProductPage;
-  todayData:number;
-  yesterdayData:number;
-  thisWeekData:number;
-  lastWeekData:number;
-  thisMonthData:number;
-  lastMonthData:number;
-  constructor(public navCtrl: NavController,public navParams:NavParams) {
-    let tmp:number;
-    this.todayData=Math.random()*1000;
-    tmp=Math.random()*1000;
-    this.yesterdayData=this.todayData-tmp;
-    this.thisWeekData=Math.random()*1000;
-    tmp=Math.random()*1000;
-    this.lastWeekData=this.thisWeekData-tmp;
-    this.thisMonthData=Math.random()*1000;
-    tmp=Math.random()*1000;
-    this.lastMonthData=this.thisMonthData-tmp;
+  todayNumData = {
+    num1: 0,
+    num2: 0,
+    num3: 0,
+    num1add: 0,
+    num2add: 0,
+    num3add: 0
+  }
+
+  constructor(public navCtrl: NavController,
+              private storage: LocalStorageProvider) {
+    let lastDayNum = storage.get("todayNum", null);
+    let newNum = {
+      num1: 100 * Math.random(),
+      num2: 1000 * Math.random(),
+      num3: 10000 * Math.random(),
+      num1add: 0,
+      num2add: 0,
+      num3add: 0,
+    }
+
+    if (null == lastDayNum) {
+      console.log(1)
+      this.todayNumData = newNum;
+      storage.set('todayNum', newNum);
+    } else {
+      console.log(2)
+      let temp = {
+        num1: 100 * Math.random(),
+        num2: 1000 * Math.random(),
+        num3: 10000 * Math.random(),
+        num1add: 0,
+        num2add: 0,
+        num3add: 0,
+      }
+      let nowNum = {
+        num1: temp.num1,
+        num2: temp.num2,
+        num3: temp.num3,
+        num1add: temp.num1 - lastDayNum.num1,
+        num2add: temp.num2 - lastDayNum.num2,
+        num3add: temp.num3 - lastDayNum.num3,
+      }
+      this.todayNumData = nowNum;
+      storage.set('todayNum', nowNum);
+    }
   }
   category(){
-    this.navCtrl.push(CategoryListPage);
+  }
+  qiandao(){
+    this.navCtrl.push(PositionPage);
+  }
+  pushProductPage(){
+
+  }
+  normalperform(){
+    this.navCtrl.push(PerformPage);
+  }
+  list(){
+    this.navCtrl.push(ListPage);
+  }
+  leaverecord(){
+    this.navCtrl.push(LeaveRecordPage);
+  }
+  absent(){
+    this.navCtrl.push(AbsentRecordPage);
   }
 }

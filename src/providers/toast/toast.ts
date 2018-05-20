@@ -30,5 +30,5 @@ export class ToastProvider {
       message: message,
       duration: duration
     }).present();
-  }
+}
 }

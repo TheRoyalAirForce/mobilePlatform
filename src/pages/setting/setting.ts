@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams} from 'ionic-angular';
-import {LoginPage} from "../login/login";
-import {LocalStorageProvider} from "../../providers/local-storage/local-storage";
-import {ShopPage} from "../shop/shop";
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {EditPasswordPage} from "../edit-password/edit-password";
+import {LogInPage} from "../log-in/log-in";
+import {AboutusPage} from "../aboutus/aboutus";
+
+"../aboutus/aboutus";
+import {LocalStorageProvider} from "../../providers/local-storage/local-storage";
 
 /**
  * Generated class for the SettingPage page.
@@ -12,32 +14,28 @@ import {EditPasswordPage} from "../edit-password/edit-password";
  * Ionic pages and navigation.
  */
 
+@IonicPage()
 @Component({
   selector: 'page-setting',
   templateUrl: 'setting.html',
 })
 export class SettingPage {
-  //@ViewChild(Nav) nav: Nav;
-  //signinPage:any;
-  shoppage:any;
-  epassword:any;
-  //phone:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private storage:LocalStorageProvider,) {
-    //this.signinPage = SignPage;
-    this.shoppage=ShopPage;
-    this.epassword=EditPasswordPage;
-
-    //console.log(this.phone);
+  loginPage:any;
+  editPasswordPage :any = EditPasswordPage;
+  aboutusPage :any=AboutusPage;
+  APP;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private storage:LocalStorageProvider) {
+    this.loginPage = LogInPage;
+    this.APP = this.storage.get('APP',{});
   }
+
   ionViewDidLoad() {
-
     console.log('ionViewDidLoad SettingPage');
-
   }
-  Sexit(){
-    this.storage.remove('currentuser');
-    this.navCtrl.setRoot(LoginPage);
-    this.navCtrl.popToRoot();
+  logout(){
+    this.storage.remove("UserSession");
+    this.navCtrl.push(LogInPage)
   }
 
 }

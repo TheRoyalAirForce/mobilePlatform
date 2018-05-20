@@ -8,28 +8,31 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { WelcomePage } from '../pages/welcome/welcome';
+import { WelcomePage } from "../pages/welcome/welcome";
 import { LocalStorageProvider } from '../providers/local-storage/local-storage';
-import {RegisterPage} from "../pages/register/register";
-import {LoginPage} from "../pages/login/login";
-import {ForgotPasswordPage} from "../pages/forgot-password/forgot-password";
-import {CopyrightComponent} from "../components/copyright/copyright";
+import { RegisterPage } from "../pages/register/register";
+import {FormsModule} from "@angular/forms";
+import { HttpModule} from "@angular/http";
 import { AuthenticationCodeProvider } from '../providers/authentication-code/authentication-code';
-import { SettingPage } from '../pages/setting/setting';
-import {EditShopPage} from "../pages/edit-shop/edit-shop";
-import {ShopPage} from "../pages/shop/shop";
-import {CategoryListPage} from "../pages/category-list/category-list";
-import { CategoryProvider } from '../providers/category/category';
-import {EditCategoryPage} from "../pages/edit-category/edit-category";
-import {EditCategoryNamePage} from "../pages/edit-category-name/edit-category-name";
-import {CategoryEditListPage} from "../pages/category-edit-list/category-edit-list";
-import { ProductProvider } from '../providers/product/product';
-import { ToastProvider } from '../providers/toast/toast';
-import { AddProductPage} from "../pages/add-product/add-product";
-import {CommodityProvider} from "../providers/commodity/commodity";
-import {HttpModule} from '@angular/http';
+import {CopyrightComponent} from "../components/copyright/copyright";
+import {ForgotPasswordPage} from "../pages/forgot-password/forgot-password";
+import {LogInPage} from "../pages/log-in/log-in";
+import {SettingPage} from "../pages/setting/setting";
 import {EditPasswordPage} from "../pages/edit-password/edit-password";
-import {MenuPage} from "../pages/menu/menu";
+import { ToastProvider } from '../providers/toast/toast';
+import {AboutusPage} from "../pages/aboutus/aboutus";
+import {PhotoLibrary} from "@ionic-native/photo-library";
+import {BarcodeScanner} from "@ionic-native/barcode-scanner";
+import {Camera} from "@ionic-native/camera";
+import {ImagePicker} from "@ionic-native/image-picker";
+import {KaoqinPage} from "../pages/kaoqin/kaoqin";
+import { GlobalStorage } from '../providers/global-storage/global-storage';
+import { RedditData } from '../providers/reddit-data/reddit-data';
+import {NormalPerformPage} from "../pages/normal-perform/normal-perform";
+import {PositionPage} from "../pages/position/position";
+import {PerformPage} from "../pages/perform/perform";
+import {LeaveRecordPage} from "../pages/leave-record/leave-record";
+import {AbsentRecordPage} from "../pages/absent-record/absent-record";
 @NgModule({
   declarations: [
     MyApp,
@@ -37,26 +40,25 @@ import {MenuPage} from "../pages/menu/menu";
     ListPage,
     WelcomePage,
     RegisterPage,
-    LoginPage,
-    ForgotPasswordPage,
     CopyrightComponent,
+    LogInPage,
+    ForgotPasswordPage,
     SettingPage,
-    EditShopPage,
-    ShopPage,
-    CategoryListPage,
-    EditCategoryPage,
-    EditCategoryNamePage,
-    CategoryEditListPage,
-    AddProductPage,
     EditPasswordPage,
-    MenuPage
+    AboutusPage,
+    KaoqinPage,
+    NormalPerformPage,
+    PositionPage,
+    PerformPage,
+    LeaveRecordPage,
+    AbsentRecordPage,
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp,{
-      backButtonText: '返回', // 配置返回按钮的文字
-      backButtonIcon: 'arrow-dropleft-circle' // 配置返回按钮的图标
+    IonicModule.forRoot(MyApp, {
+    backButtonText: '返回'
     }),
+    FormsModule,
     HttpModule
   ],
   bootstrap: [IonicApp],
@@ -66,19 +68,17 @@ import {MenuPage} from "../pages/menu/menu";
     ListPage,
     WelcomePage,
     RegisterPage,
-    LoginPage,
+    LogInPage,
     ForgotPasswordPage,
-    CopyrightComponent,
     SettingPage,
-    EditShopPage,
-    ShopPage,
-    CategoryListPage,
-    EditCategoryPage,
-    EditCategoryNamePage,
-    CategoryEditListPage,
-    AddProductPage,
     EditPasswordPage,
-    MenuPage
+    AboutusPage,
+    KaoqinPage,
+    NormalPerformPage,
+    PositionPage,
+    PerformPage,
+    LeaveRecordPage,
+    AbsentRecordPage,
   ],
   providers: [
     StatusBar,
@@ -86,10 +86,13 @@ import {MenuPage} from "../pages/menu/menu";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LocalStorageProvider,
     AuthenticationCodeProvider,
-    CategoryProvider,
-    ProductProvider,
     ToastProvider,
-    CommodityProvider
+    PhotoLibrary,
+    BarcodeScanner,
+    Camera,
+    ImagePicker,
+    GlobalStorage,
+    RedditData,
   ]
 })
 export class AppModule {}

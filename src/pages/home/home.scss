@@ -5,9 +5,6 @@ page-home {
   .greater{
     color:color($colors,danger);
   }
-  .quick-actions + .quick-actions{
-    margin-top: -1px;
-  }
   .quick-action-item {
     height: 25vw;
     display: flex;
@@ -18,8 +15,16 @@ page-home {
   .quick-action-item + .quick-action-item{
     margin-left: -1px;
   }
+
   .shortcut{
     text-align: center;
+    //height: auto;
+  }
+  .quick-actions{
+    //margin-left: 1px;
+  }
+  .quick-actions + .quick-actions{
+    margin-top: -1px;
   }
   .shortcut ion-icon{
     font-size: 48px;
@@ -31,3 +36,4 @@ page-home {
     text-decoration: none;
   }
 }
+

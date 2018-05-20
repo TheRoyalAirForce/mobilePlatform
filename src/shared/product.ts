@@ -1,10 +1,18 @@
-export class Product {
-  id: string;
-  name: string;
-  categoryId: number;
-  categoryName: string;
-  category: any;
-  barcode: string;
-  images: string[];
-  price: number;
+export class Product{
+  id:string;
+  name:string;
+  images:string[];
+  image:string;
+  categoryId:string;
+  categoryName:string;
+  category:any;
+  barcode:string;
+
+  price:number;
+
+  purchasePrice:number;
+  stock:number;
+  spec:string;
+  phone:string;
+  pname:string;
 }

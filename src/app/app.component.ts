@@ -1,64 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { WelcomePage } from "../pages/welcome/welcome";
-import {LocalStorageProvider} from "../providers/local-storage/local-storage";
-import {SettingPage} from "../pages/setting/setting";
-import {MenuPage} from "../pages/menu/menu";
-import {LoginPage} from "../pages/login/login";
-@Component({
-  template:`<ion-nav [root]='root'></ion-nav>`
-})
-export class MyApp {
-  @ViewChild(Nav) nav: Nav;
-
-  root: any = WelcomePage;
-  user:any = '1';
-
-
-
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,private storage:LocalStorageProvider,) {
-    this.initializeApp();
-
-
-  let appConfig:any = this.storage.get('App',{
-      isRun:false,
-      version:'1.0.0'
-    });
-    if(appConfig.isRun==false){
-      this.root =WelcomePage;
-      appConfig.isRun = true;
-      this.storage.set('App',appConfig);
-    }
-    else{
-      this.user=this.storage.get('currentuser',{
-      });
-      console.log(this.user.value);
-      if(this.user.value==null) {
-        this.root = LoginPage;
-      }
-      else{
-        this.root=MenuPage;
-      }
-    }
-
-  }
-
-  initializeApp() {
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
-
-}
-import { Component, ViewChild } from '@angular/core';
 import { Nav, NavController, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -70,7 +10,6 @@ import {LocalStorageProvider} from "../providers/local-storage/local-storage";
 import {LogInPage} from "../pages/log-in/log-in";
 import {SettingPage} from "../pages/setting/setting";
 import {AboutusPage} from "../pages/aboutus/aboutus";
-import {CategoryListPage} from "../pages/category-list/category-list";
 @Component({
   templateUrl: 'app.html'
 })
@@ -127,10 +66,10 @@ export class MyApp {
       }
     }
     this.pages = [
-      { title: '开店论坛', component: HomePage, icon: 'chatboxes' },
-      { title: '手机橱窗', component: ListPage, icon: 'create' },
-      { title: '邀请有礼', component: ListPage, icon: 'git-merge' },
-      { title: '资金账户', component: ListPage, icon: 'cash' },
+      { title: '主页', component: HomePage, icon: 'chatboxes' }
+      // { title: '手机橱窗', component: ListPage, icon: 'create' },
+      // { title: '邀请有礼', component: ListPage, icon: 'git-merge' },
+      // { title: '资金账户', component: ListPage, icon: 'cash' },
     ];
   }
 

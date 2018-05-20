@@ -6,34 +6,32 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
-    <ion-title>店铺设置</ion-title>
+  <ion-navbar>
+    <ion-title>Setting</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content no-padding>
   <ion-list>
-    <button ion-item [navPush]="shoppage">店铺设置</button>
-  </ion-list>
-  <ion-list>
-    <button ion-item [navPush]="epassword">密码</button>
-  </ion-list>
-  <ion-list>
-    <button ion-item>关于我们</button>
-  </ion-list>
-  <ion-list>
+    <button ion-item [navPush]="shopPage">
+      系统设置
+    </button>
+    <button ion-item  [navPush]="editPasswordPage">
+      密码
+    </button>
+    <button ion-item [navPush]="aboutusPage">
+      关于我们
+    </button>
+    <ion-item>
+      版本号 {{APP.version}}
+      <ion-note item-end>检查更新</ion-note>
+    </ion-item>
     <ion-item>
       联系客服
-      <ion-note item-end><a href="tel:10086">10086</a></ion-note>
+      <ion-note item-end>10086</ion-note>
     </ion-item>
   </ion-list>
-  <ion-list>
-    <button ion-item>版本号</button>
-  </ion-list>
-  <ion-list>
-  <button ion-item (click)="Sexit()">安全退出</button>
-  </ion-list>
-
+  <button ion-item (click)="logout()">安全退出</button>
 </ion-content>

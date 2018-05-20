@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import {NavController, NavParams, ToastController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Md5} from "ts-md5/dist/md5";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ToastProvider} from "../../providers/toast/toast";
 import {LocalStorageProvider} from "../../providers/local-storage/local-storage";
-import {SettingPage} from "../setting/setting";
-
+import {AuthenticationCodeProvider} from "../../providers/authentication-code/authentication-code";
+import {AccountValidator} from "../../validators/account";
 /**
  * Generated class for the EditPasswordPage page.
  *
@@ -10,81 +13,47 @@ import {SettingPage} from "../setting/setting";
  * Ionic pages and navigation.
  */
 
+@IonicPage()
 @Component({
   selector: 'page-edit-password',
   templateUrl: 'edit-password.html',
 })
 export class EditPasswordPage {
-  phone:any;
-  npassword:any;
-  opassword:any;
-  qpassword:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private storage:LocalStorageProvider,private toastCtrl:ToastController) {
-    this.phone=this.storage.get('currentuser',{});
-  }
+  private registerForm: FormGroup;
 
+  constructor(public navCtrl: NavController,
+              private toastProvider: ToastProvider,
+              private formBuilder: FormBuilder,
+              private storage: LocalStorageProvider,
+              private authenticationCodeService: AuthenticationCodeProvider) {
+    this.registerForm = this.formBuilder.group({
+      'confirmPassword': ['', [Validators.required, AccountValidator.isEqual]],
+      'password': ['', [Validators.required, AccountValidator.isPasswordValid]]
+    });
+  }
+//
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditPasswordPage');
   }
-  toeditpasw(){
-    let appUser=this.storage.get(this.phone,{
-      phone:'',
-      email:'',
-      shopName:'',
-      password:''
-    });
-    if(this.opassword=='') {
-      let toast = this.toastCtrl.create({
-        message: '旧密码不能为空',
-        duration: 3000
-      });
-      toast.present();
-    }
-    else if(this.npassword=='') {
-      let toast = this.toastCtrl.create({
-        message: '新密码不能为空',
-        duration: 3000
-      });
-      toast.present();
-    }
-    else if(this.qpassword=='') {
-      let toast = this.toastCtrl.create({
-        message: '确认密码不能为空',
-        duration: 3000
-      });
-      toast.present();
-    }
-    else if(this.opassword!=appUser.password) {
-      let toast = this.toastCtrl.create({
-        message: '密码错误',
-        duration: 3000
-      });
-      toast.present();
-    }
-    else if(!/^(?![0-9]+$)(?![a-zA-Z]+$)(?!([^(0-9a-zA-Z)]|[\(\)])+$)([^(0-9a-zA-Z)]|[\(\)]|[a-zA-Z]|[0-9]){6,16}$/.test(this.npassword)) {
-      let toast = this.toastCtrl.create({
-        message: '新密码格式不正确',
-        duration: 3000
-      });
-      toast.present();
-    }
-    else if(this.npassword!=this.qpassword) {
-      let toast = this.toastCtrl.create({
-        message: '确认密码不符合',
-        duration: 3000
-      });
-      toast.present();
-    }
-    else {
-      appUser.password=this.npassword;
-      this.storage.set(this.phone,appUser);
-      let toast = this.toastCtrl.create({
-        message: '修改成功',
-        duration: 3000
-      });
-      toast.present();
-    }
-       this.navCtrl.push(SettingPage);
-  }
+  forgetPWFinish(){
+    let userInfo = this.storage.get('UserSession',null);
+    // if (!this.registerForm.controls.password.valid) {
+    //   this.toastProvider.show('请输入密码（6-16位并由数字、英文或者字符至少两种构成）', 'error')
+    //   return;
+    // }
+    // if (this.registerForm.controls.confirmPassword.value!=this.registerForm.controls.password.value) {
+    //   this.toastProvider.show('两次密码不一致', 'error')
+    //   return;
+    // }
+    // let userlist: any = this.storage.get('userlist', null);
+    // for(var i = 0; i < userlist.length; i++){
+    //   if(userInfo.phone == userlist[i].phone){
+    //     userlist[i]['password'] = Md5.hashStr(this.registerForm.controls.password.value).toString();
+    //     break;
+    //   }
+    // }
+    // this.storage.set('userlist', userlist);
+    this.toastProvider.show('密码修改完成', 'success')
 
+  }
 }
