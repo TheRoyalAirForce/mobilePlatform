@@ -15,10 +15,54 @@
 
 
 
+<!--<ion-content class="position-page">-->
+
+  <!--<button ion-button block outline color="dark"  (click)="choseSiteSign()">选择位置签到</button>-->
+  <!--<button ion-button block outline color="dark"  (click)="askForLeave()">请假申请</button>-->
+
+<!--</ion-content >-->
+
 <ion-content class="position-page">
 
-  <button ion-button block outline color="dark"  (click)="choseSiteSign()">选择位置签到</button>
-  <button ion-button block outline color="dark"  (click)="askForLeave()">请假申请</button>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        数据结构
+      </ion-card-title>
+      <button ion-button block outline color="dark"  (click)="choseSiteSign()">选择位置签到</button>
+      <button ion-button block outline color="dark"  (click)="leave()">请假申请</button>
+    </ion-card-content>
+    <ion-item>
+      <ion-icon name='musical-notes' item-start style="color: #d03e84"></ion-icon>
+      成员
+      <ion-badge item-end>36</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='logo-twitter' item-start style="color: #55acee"></ion-icon>
+      时间
+      <ion-badge item-end>每周五第三第四节</ion-badge>
+    </ion-item>
+  </ion-card>
 
-</ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        算法导论
+      </ion-card-title>
+      <button ion-button block outline color="dark"  (click)="choseSiteSign()">选择位置签到</button>
+      <button ion-button block outline color="dark"  (click)="leave()">请假申请</button>
+    </ion-card-content>
+    <ion-item>
+      <ion-icon name='musical-notes' item-start style="color: #d03e84"></ion-icon>
+      成员
+      <ion-badge item-end>36</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='logo-twitter' item-start style="color: #55acee"></ion-icon>
+      时间
+      <ion-badge item-end>每周四第三第四节</ion-badge>
+    </ion-item>
+  </ion-card>
+
+</ion-content >
 

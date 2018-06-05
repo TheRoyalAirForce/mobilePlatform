@@ -3,36 +3,30 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>课堂考勤记录</ion-title>
+    <ion-title>考勤汇总</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="card-background-page">
-  <!--<ion-list>-->
-  <!--<button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">-->
-  <!--<ion-icon [name]="item.icon" item-left></ion-icon>-->
-  <!--{{item.title}}-->
-  <!--<div class="item-note" item-right>-->
-  <!--{{item.note}}-->
-  <!--</div>-->
-  <!--</button>-->
-  <!--</ion-list>-->
-  <!--<div *ngIf="selectedItem" padding>-->
-  <!--You navigated here from <b>{{selectedItem.title}}{{selectedItem.note}}</b>-->
-  <!--</div>-->
-  <button ion-button="" outline block color="dark" (click)="gotoKaoqin()">查询考勤汇总信息</button>
-  <ion-card *ngFor="let item of calltherolls">
-    <img src="assets/img/background/background-5.jpg">
-    <!--<img src={{backimg}}>-->
-    <div class="card-title">课程：{{item.courseName}}</div>
-    <div class="card-subtitle">记录类型:{{item.callstate}}</div>
-    <div class="card-subtitle-1">日期：{{item.calldate}}</div>
-    <!--<ion-card-header>-->
-    <!--课程：{{item.courseName}}-->
-    <!--</ion-card-header>-->
-    <!--<ion-card-content>-->
-    <!--<p>记录类型:{{item.callstate}}</p>-->
-    <!--<p>日期：{{item.calldate}}</p>-->
-    <!--</ion-card-content>-->
-  </ion-card>
+  <img src="assets/imgs/1.png"   alt="">
+  <div>
+    <ion-col>
+      <ion-row class="row1">
+        <ion-col>学号</ion-col>
+        <!--<ion-col class="col" style="background:#0fff;opacity:0.5" >账号</ion-col>-->
+        <ion-col>签到数</ion-col>
+        <ion-col>请教数</ion-col>
+        <ion-col>旷课数</ion-col>
+        <ion-col>请假数</ion-col>
+      </ion-row>
+      <ion-row class="row1">
+        <ion-col>170327009</ion-col>
+        <!--<ion-col class="col" style="background:#0fff;opacity:0.5" >账号</ion-col>-->
+        <ion-col>20</ion-col>
+        <ion-col>20</ion-col>
+        <ion-col>1</ion-col>
+        <ion-col>1</ion-col>
+      </ion-row>
+    </ion-col>
+  </div>
 </ion-content>

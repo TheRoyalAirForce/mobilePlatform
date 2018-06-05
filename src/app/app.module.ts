@@ -33,6 +33,10 @@ import {PositionPage} from "../pages/position/position";
 import {PerformPage} from "../pages/perform/perform";
 import {LeaveRecordPage} from "../pages/leave-record/leave-record";
 import {AbsentRecordPage} from "../pages/absent-record/absent-record";
+import {SitePage} from "../pages/site/site";
+import {LeavePage} from "../pages/leave/leave";
+// import { BaiduMapModule } from 'angular2-baidu-map';
+// import {MapPage} from "../pages/map/map";
 @NgModule({
   declarations: [
     MyApp,
@@ -52,6 +56,9 @@ import {AbsentRecordPage} from "../pages/absent-record/absent-record";
     PerformPage,
     LeaveRecordPage,
     AbsentRecordPage,
+    SitePage,
+    LeavePage,
+    // MapPage,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,7 @@ import {AbsentRecordPage} from "../pages/absent-record/absent-record";
     backButtonText: '返回'
     }),
     FormsModule,
-    HttpModule
+    HttpModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -79,6 +86,9 @@ import {AbsentRecordPage} from "../pages/absent-record/absent-record";
     PerformPage,
     LeaveRecordPage,
     AbsentRecordPage,
+    SitePage,
+    LeavePage,
+    // MapPage,
   ],
   providers: [
     StatusBar,

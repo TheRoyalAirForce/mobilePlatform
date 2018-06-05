@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import 'rxjs/add/operator/map';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {SitePage} from "../site/site";
+import {LeavePage} from "../leave/leave";
 
 /**
  * Generated class for the PositionPage page.
@@ -20,6 +23,12 @@ export class PositionPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PositionPage');
+  }
+  choseSiteSign(){
+    this.navCtrl.push(SitePage);
+  }
+  leave(){
+    this.navCtrl.push(LeavePage);
   }
 
 }

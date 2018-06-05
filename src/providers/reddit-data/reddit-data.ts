@@ -10,8 +10,8 @@ import 'rxjs/add/operator/map';
  */
 @Injectable()
 export class RedditData {
-
-  hurl = 'http://868179d8.ngrok.io';
+  //'http://dju46q.natappfree.cc/attendentServer/login/doLogin?username=13233333334&password=123456
+  hurl = 'http://dju46q.natappfree.cc6/attendentServer';
   // hurl = 'http://222.76.59.23:8080';
 
   constructor(public http: Http) {
@@ -19,12 +19,12 @@ export class RedditData {
   }
 
   getJsonData() {
-    let url = this.hurl + '/shhTest/personnelaction/getAllPersonnelHql';
+    let url = this.hurl + '/personnelaction/getAllPersonnelHql';
     return this.http.get(url).map(res => res.json());
   }
 
   postLogin(id, password) {
-    let url = this.hurl + '/shhTest/personnelaction/CheckPersonnel?id=' + id + '&password=' + password;
+    let url = this.hurl + '/login/doLogin?username=' + id + '&password=' + password;
     return this.http.get(url).map(res => res.json());
   }
 

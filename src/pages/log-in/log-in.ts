@@ -56,6 +56,9 @@ export class LogInPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LogInPage');
   }
+  login2(){
+    
+  }
   Login(){
     let msg = '帐号或密码错误';
     let flag = false;

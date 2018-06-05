@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+    <ion-title>选择座位签到</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h3>  选择座位</h3>
+  <!--<p>当前选择课程：{{c}}</p>-->
+  <!--&lt;!&ndash;<p>第{{row}}排</p>&ndash;&gt;-->
+  <!--&lt;!&ndash;<p>第{{col}}列</p>&ndash;&gt;-->
+
+  <form>
+
+    <!--<ion-item *ngFor="let item of cols">{{item}}</ion-item>-->
+    <ion-row>
+      <ion-col>
+
+        <ion-item>
+
+          <ion-label>选择所坐的排</ion-label>
+          <<ion-input name="row" type="text"  [(ngModel)]="row" #phone="ngModel"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>选择所坐的列</ion-label>
+          <<ion-input name="col" type="text"  [(ngModel)]="col" #phone="ngModel"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <!--<ion-row>-->
+    <!--<ion-col>-->
+    <!--<ion-item>-->
+    <!--<ion-label>选择上课日期</ion-label>-->
+    <!--<ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="time" name="time"></ion-datetime>-->
+    <!--</ion-item>-->
+    <!--</ion-col>-->
+    <!--</ion-row>-->
+
+    <ion-row>
+      <ion-col>
+        <button ion-button block outline color="primary" (click)="sign1()">签到</button>
+      </ion-col>
+    </ion-row>
+  </form>
+  <!--<p text-center="">排：从前往后 列：从左往右</p>-->
+  <!--<button ion-button outline color="dark">签到</button>-->
+</ion-content>

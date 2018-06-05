@@ -1,4 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
+import 'rxjs/add/operator/map';
 import { NavController, NavParams } from 'ionic-angular';
 import {AuthenticationCodeProvider} from "../../providers/authentication-code/authentication-code";
 import {LocalStorageProvider} from "../../providers/local-storage/local-storage";

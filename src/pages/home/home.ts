@@ -7,6 +7,7 @@ import {PositionPage} from "../position/position";
 import {PerformPage} from "../perform/perform";
 import {LeaveRecordPage} from "../leave-record/leave-record";
 import {AbsentRecordPage} from "../absent-record/absent-record";
+// import {MapPage} from "../map/map";
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -78,5 +79,8 @@ export class HomePage {
   }
   absent(){
     this.navCtrl.push(AbsentRecordPage);
+  }
+  map(){
+    // this.navCtrl.push(MapPage);
   }
 }
