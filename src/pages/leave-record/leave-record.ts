@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {RedditData} from "../../providers/reddit-data/reddit-data";
 
 /**
  * Generated class for the LeaveRecordPage page.
@@ -14,12 +15,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'leave-record.html',
 })
 export class LeaveRecordPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  Leaverecord: any = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams,public reddit:RedditData){
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LeaveRecordPage');
+    this.reddit.getLeaverecord('13333').subscribe(
+      result => {
+        this.Leaverecord =result;
+      })
   }
 
 }

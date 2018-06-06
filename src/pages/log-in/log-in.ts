@@ -29,6 +29,8 @@ import {LocalStorageProvider} from "../../providers/local-storage/local-storage"
 import {HomePage} from "../home/home";
 import {ForgotPasswordPage} from "../forgot-password/forgot-password";
 import {RegisterPage} from "../register/register";
+import {RedditData} from "../../providers/reddit-data/reddit-data";
+import {ToastProvider} from "../../providers/toast/toast";
 
 /**
  * Generated class for the LogInPage page.
@@ -43,6 +45,7 @@ import {RegisterPage} from "../register/register";
 })
 export class LogInPage {
   @ViewChild('loginForm') loginForm:any;
+  flag='';
   login = {
     phone:'',
     password:''
@@ -50,43 +53,31 @@ export class LogInPage {
   username:string = '';//视图模型的属性账号，双向绑定
   password:string = '';//视图模型的属性密码，双向绑定
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage:LocalStorageProvider,
-              private toastCtrl:ToastController) {
+              private toastCtrl:ToastController,public reddit:RedditData,public toastProvider:ToastProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LogInPage');
   }
   login2(){
-    
+
   }
   Login(){
-    let msg = '帐号或密码错误';
-    let flag = false;
-    let userlist:any = this.storage.get('userlist',null);
-    if(null != userlist){
-      for(var i=0;i<userlist.length;i++){
-        if(this.login.phone==userlist[i].phone && this.login.password==userlist[i].password){
-          flag = true;
-        }
-      }
-      if(flag){
-        msg = "登录成功";
-      }
-    }
-    let userSession = {
-      phone:this.login.phone,
-    }
-    this.storage.set("UserSession",userSession);
 
-    let toast = this.toastCtrl.create({
-      message:msg,
-      duration:3000
-    });
-    toast.present();
-    if(msg == "登录成功"){
-      this.navCtrl.push(HomePage);
-    }
-    //
+    this.reddit.postLogin(this.login.phone, this.login.password).subscribe(
+      result => {
+        this.flag='1';
+        console.log(result.isOk);
+        if(result.isOk==true){
+          this.navCtrl.push(HomePage);
+        }
+        else{
+          this.toastProvider.show('登入失败', 'success')
+        }
+      })
+     if(this.flag!='1'){
+       this.toastProvider.show('账户密码错误', 'success')
+     }
   }
   quanxian()
   {

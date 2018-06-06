@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RedditData {
   //'http://dju46q.natappfree.cc/attendentServer/login/doLogin?username=13233333334&password=123456
-  hurl = 'http://dju46q.natappfree.cc6/attendentServer';
+  hurl = 'http://lzy25.s1.natapp.cc/attendentServer';
   // hurl = 'http://222.76.59.23:8080';
 
   constructor(public http: Http) {
@@ -28,18 +28,18 @@ export class RedditData {
     return this.http.get(url).map(res => res.json());
   }
 
-  getPersonById(id) {
-    let url = this.hurl + '/shhTest/personnelaction/getPersonnelByID?id=' + id;
+  getqiandao(id,studentId,row,col) {
+    let url = this.hurl + '/course/studentSignIn?courseId=' + id +'&studentId=' + studentId+'&row=' + row+'&col=' + col;
     return this.http.get(url).map(res => res.json());
   }
 
-  getCoursesById(id) {
-    let url = this.hurl + '/shhTest/markaction/getMarkByID?id=' + id;
+  getLeaverecord(id) {
+    let url = this.hurl + '/course/getStudentLeaveList?studentId=' + id;
     return this.http.get(url).map(res => res.json());
   }
 
-  getCourseByName(name) {
-    let url = this.hurl + '/shhTest/courseaction/getCourseByName?coursename=' + name;
+  getAbsendrecord(id) {
+    let url = this.hurl + '/course/getStudentAbsentList?studentId=' + id;
     return this.http.get(url).map(res => res.json());
   }
 

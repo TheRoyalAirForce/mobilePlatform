@@ -5,30 +5,86 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>旷课记录</ion-title>
-  </ion-navbar>
+  <link href="https://cdn.bootcss.com/ionic/1.3.2/css/ionic.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/ionic/1.3.2/js/ionic.bundle.min.js"></script>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div class="bar bar-header">
+    <div class="h1 title">旷课记录</div>
+  </div>
   <img src="assets/imgs/3.png"   alt="">
-  <div>
-    <ion-grid>
-      <ion-row class="row1">
-        <ion-col>日期</ion-col>
-        <!--<ion-col class="col" style="background:#0fff;opacity:0.5" >账号</ion-col>-->
-        <ion-col>时间</ion-col>
-        <ion-col>课程</ion-col>
-      </ion-row>
-      <ion-row class="row2">
-        <ion-col>18.5.25</ion-col>
-        <!--<ion-col class="col" style="background:#0fff;opacity:0.5" >账号</ion-col>-->
-        <ion-col>第三第四节</ion-col>
-        <ion-col>数据结构</ion-col>
-      </ion-row>
-    </ion-grid>
+  <!--<div>-->
+    <!--<ion-grid>-->
+      <!--<ion-row class="row1">-->
+        <!--<ion-col>日期</ion-col>-->
+        <!--&lt;!&ndash;<ion-col class="col" style="background:#0fff;opacity:0.5" >账号</ion-col>&ndash;&gt;-->
+        <!--<ion-col>时间</ion-col>-->
+        <!--<ion-col>课程</ion-col>-->
+      <!--</ion-row>-->
+      <!--<ion-row class="row2">-->
+        <!--<ion-col>18.5.25</ion-col>-->
+        <!--&lt;!&ndash;<ion-col class="col" style="background:#0fff;opacity:0.5" >账号</ion-col>&ndash;&gt;-->
+        <!--<ion-col>第三第四节</ion-col>-->
+        <!--<ion-col>数据结构</ion-col>-->
+      <!--</ion-row>-->
+    <!--</ion-grid>-->
+  <!--</div>-->
+  <div class="list">
+
+    <a class="item item-icon-left" >
+      <i class="icon ion-email"></i>
+      日期
+      <span class="item-note">
+            18.5.25
+          </span>
+    </a>
+
+    <a class="item item-icon-left item-icon-left" >
+      <i class="icon ion-chatbubble-working"></i>
+      时间
+      <span class="item-note">
+              第三第四节
+          </span>
+    </a>
+
+    <a class="item item-icon-left">
+      <i class="icon ion-mic-a"></i>
+      课程
+      <span class="item-note">
+            数据结构
+          </span>
+    </a>
+    <a class="item item-icon-left" >
+
+    </a>
+    <a class="item item-icon-left" >
+      <i class="icon ion-email"></i>
+      日期
+      <span class="item-note">
+            18.5.24
+          </span>
+    </a>
+
+    <a class="item item-icon-left item-icon-left" href="#">
+      <i class="icon ion-chatbubble-working"></i>
+      时间
+      <span class="item-note">
+              第三第四节
+          </span>
+    </a>
+
+    <a class="item item-icon-left" href="#">
+      <i class="icon ion-mic-a"></i>
+      课程
+      <span class="item-note">
+            算法导论
+          </span>
+    </a>
+    <a class="item item-icon-left" href="#">
+
+    </a>
   </div>
 </ion-content>

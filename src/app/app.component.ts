@@ -14,7 +14,7 @@ import {AboutusPage} from "../pages/aboutus/aboutus";
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
+  data:any[];
   rootPage:any = WelcomePage;
 
   pages: Array<{title: string, component: any, icon: string}>;

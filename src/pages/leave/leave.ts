@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ToastProvider} from "../../providers/toast/toast";
 
 /**
  * Generated class for the LeavePage page.
@@ -15,11 +16,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LeavePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public toastProvider:ToastProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LeavePage');
   }
-
+  leaves(){
+    this.toastProvider.show('请假成功', 'success')
+  }
 }
