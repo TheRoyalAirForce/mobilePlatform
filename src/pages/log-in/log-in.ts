@@ -75,9 +75,6 @@ export class LogInPage {
           this.toastProvider.show('登入失败', 'success')
         }
       })
-     if(this.flag!='1'){
-       this.toastProvider.show('账户密码错误', 'success')
-     }
   }
   quanxian()
   {

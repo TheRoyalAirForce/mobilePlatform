@@ -55,12 +55,7 @@ export class RegisterPage {
       this.next();
     }
     else {
-      //   let toast = this.toastCtrl.create({
-      //     message:'短信验证码不正确或者已过期',
-      //     duration:3000
-      //   });
-      //   toast.present();
-      // }
+
       this.next();
     }
   }
