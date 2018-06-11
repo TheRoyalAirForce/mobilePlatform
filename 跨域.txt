@@ -1,0 +1,8 @@
+<filter>
+		<filter-name>crossFilter</filter-name>
+		<filter-class>org.jeecgframework.web.system.filter.CrossFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>crossFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
