@@ -21,7 +21,7 @@ export class SitePage {
   qiandaodata:any[];
   pai: string;
   lie: string;
-  isPass = ''
+  isPass = '0';
   // public time = '2017-05-10';
 
   constructor(public toastCtrl: ToastController, public loadingCtrl: LoadingController,public toastProvider:ToastProvider,public reddit:RedditData) {
@@ -43,7 +43,7 @@ export class SitePage {
     }
   }
   sign2() {
-    this.reddit.getqiandao('30002','170327025',this.row,this.col).subscribe(
+    this.reddit.getqiandao('30003','170327024',this.row,this.col).subscribe(
       result => {
         this.isPass='1';
         if(result.code==1){

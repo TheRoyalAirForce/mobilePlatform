@@ -15,15 +15,16 @@ import {RedditData} from "../../providers/reddit-data/reddit-data";
   templateUrl: 'leave-record.html',
 })
 export class LeaveRecordPage {
-  Leaverecord: any = [];
+  data: any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public reddit:RedditData){
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LeaveRecordPage');
-    this.reddit.getLeaverecord('13333').subscribe(
+    this.reddit.getLeaverecord('170327026').subscribe(
       result => {
-        this.Leaverecord =result;
+        this.data =result.data;
+        console.log(this.data);
       })
   }
 
