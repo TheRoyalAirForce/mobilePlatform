@@ -27,22 +27,6 @@ export class SitePage {
   constructor(public toastCtrl: ToastController, public loadingCtrl: LoadingController,public toastProvider:ToastProvider,public reddit:RedditData) {
   }
   sign1() {
-    this.reddit.getqiandao('30003','170327025',this.row,this.col).subscribe(
-      result => {
-        this.isPass='1';
-        if(result.code==1){
-          this.toastProvider.show('签到成功', 'success');
-        }
-        else{
-          this.toastProvider.show('该课程没有该学生ID，或者该座位已经被签到', 'fail');
-        }
-      })
-    if(this.isPass !='1'){
-      this.isPass='0';
-      this.toastProvider.show('该课程还未开始签到', 'fail');
-    }
-  }
-  sign2() {
     this.reddit.getqiandao('30003','170327024',this.row,this.col).subscribe(
       result => {
         this.isPass='1';
@@ -53,10 +37,28 @@ export class SitePage {
           this.toastProvider.show('该课程没有该学生ID，或者该座位已经被签到', 'fail');
         }
       })
-    if(this.isPass !='1'){
-      this.isPass='0';
-      this.toastProvider.show('该课程还未开始签到', 'fail');
+    console.log(this.row);
+    if(this.row == undefined|| this.col ==undefined){
+      this.toastProvider.show('请输入座位', 'fail');
     }
+    this.isPass='0';
+  }
+  sign2() {
+    this.reddit.getqiandao('30002','170327024',this.row,this.col).subscribe(
+      result => {
+        this.isPass='1';
+        if(result.code==1){
+          this.toastProvider.show('签到成功', 'success');
+        }
+        else{
+          this.toastProvider.show('该课程没有该学生ID，或者该座位已经被签到', 'fail');
+        }
+      })
+    console.log(this.row);
+    if(this.row == undefined|| this.col ==undefined){
+      this.toastProvider.show('请输入座位', 'fail');
+    }
+    this.isPass='0';
   }
   sign() {
 

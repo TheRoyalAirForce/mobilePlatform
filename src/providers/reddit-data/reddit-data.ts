@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RedditData {
   //'http://dju46q.natappfree.cc/attendentServer/login/doLogin?username=13233333334&password=123456
-  hurl = 'http://lzy25.s1.natapp.cc/attendentServer';
+  hurl = 'http://www.fzdxlzy.cn/attendentServer';
   // hurl = 'http://222.76.59.23:8080';
 
   constructor(public http: Http) {
